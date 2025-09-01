@@ -3,10 +3,11 @@ package files
 import (
 	"GitHistory/src/flags"
 	"GitHistory/src/structs"
-	"github.com/go-git/go-git/v5"
 	"os"
 	"path/filepath"
 	"strings"
+
+	"github.com/go-git/go-git/v5"
 )
 
 func SearchForGitRepos() []structs.GitRepo {
@@ -51,7 +52,7 @@ func SearchForGitRepos() []structs.GitRepo {
 
 			for _, remote := range remotes {
 				url := remote.Config().URLs[0]
-				if !strings.Contains(url, flags.RemoteUrl) {
+				if !strings.Contains(url, flags.RemoteUrl) && flags.RemoteUrl != "" {
 					continue
 				}
 

@@ -5,14 +5,14 @@ With this you can!
 
 ## Usage
 ```bash
-./GitHistory -name <name> -remote-url <github.com/bitbucket.org> -this-month=true
+./GitHistory -name <name> -remote-url <github.com/bitbucket.org> -this-month=true -month=3
 ```
 
 ## Flags
 - name: The name of the user you are searching for (this is a contains so it can also be a part of the name)
 - remote-url: The remote url of the repository (let's say you only want to check for repo's that are actually yours E.G. github.com/nietthijmen)
 - this-month: If you want to see the commits of this month (default is false) (This was just a thing I wanted to have in git so I added it)
-
+- month: The month you want to see the commits of (default is 0 which means all months) (1-12)
 
 ## Build
 ```bash

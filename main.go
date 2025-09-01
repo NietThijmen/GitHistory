@@ -5,9 +5,10 @@ import (
 	"GitHistory/src/flags"
 	"GitHistory/src/structs"
 	"fmt"
-	"github.com/go-git/go-git/v5"
 	"strings"
 	"time"
+
+	"github.com/go-git/go-git/v5"
 )
 
 func main() {
@@ -36,6 +37,14 @@ func main() {
 			now := time.Now()
 			firstOfMonth := time.Date(now.Year(), now.Month(), 1, 0, 0, 0, 0, time.Local)
 			logOptions.Since = &firstOfMonth
+		} else if flags.Month >= 1 && flags.Month <= 12 {
+			now := time.Now()
+
+			firstOfMonth := time.Date(now.Year(), time.Month(flags.Month), 1, 0, 0, 0, 0, time.Local)
+			logOptions.Since = &firstOfMonth
+
+			lastOfMonth := time.Date(now.Year(), now.Month()+1, 0, 0, 0, 0, 0, time.Local)
+			logOptions.Until = &lastOfMonth
 		} else {
 			logOptions.All = true
 		}
